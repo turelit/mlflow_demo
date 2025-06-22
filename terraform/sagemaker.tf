@@ -9,3 +9,7 @@ resource "aws_sagemaker_domain" "mlflow_demo" {
   }
 }
 
+resource "aws_sagemaker_user_profile" "turelit" {
+  domain_id             = aws_sagemaker_domain.mlflow_demo.id
+  user_profile_name     = "turelit"
+}
