@@ -7,7 +7,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket          = "turelit-mlflow_demo"
+    bucket          = "turelit-mlflow-demo"
     key             = "terraform/state"
     region          = "eu-north-1"
     use_lockfile    = true
