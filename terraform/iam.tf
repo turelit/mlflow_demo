@@ -13,4 +13,16 @@ data "aws_iam_policy_document" "sagemaker_policy" {
       identifiers = ["sagemaker.amazonaws.com"]
     }
   }
+  statement {
+    actions = [
+      "sagemaker:DescribeDomain",
+      "sagemaker:listSpaces",
+      "sagemaker:listApps",
+      "sagemaker:describeApp"
+    ]
+
+    resources = [
+      "arn:aws:sagemaker:*",
+    ]
+  }
 }
