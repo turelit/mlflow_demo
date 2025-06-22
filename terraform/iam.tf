@@ -18,7 +18,7 @@ data "aws_iam_policy_document" "sagemaker_policy" {
       "sagemaker:DescribeDomain",
       "sagemaker:listSpaces",
       "sagemaker:listApps",
-      "sagemaker:describeApp"
+      "sagemaker:describeApp",
     ]
 
     resources = [
