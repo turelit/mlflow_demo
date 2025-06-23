@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
     actions   = [
         "iam:PassRole"
     ]
-    resources = ["arn:aws:iam::*:role/sagemaker_role"]
+    resources = ["${aws_iam_role.sagemaker_role.arn}"]
   }
   statement {
     actions   = [

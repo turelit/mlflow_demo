@@ -9,13 +9,13 @@ terraform {
   backend "s3" {
     bucket          = "turelit-mlflow-demo"
     key             = "terraform/mlflow-demo.tfstate"
-    region          = "eu-north-1"
+    region          = var.region
     use_lockfile    = true
     encrypt         = true
   }
 }
 
 provider "aws" {
-  region            = "eu-north-1"
+  region            = var.region
 }
 
