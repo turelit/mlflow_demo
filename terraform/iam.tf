@@ -11,15 +11,9 @@ resource "aws_iam_role" "sagemaker_role" {
 data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
   statement {
     actions   = [
-        "sagemaker:DescribeDomain",
-        "sagemaker:listSpaces",
-        "sagemaker:listApps",
-        "sagemaker:describeApp",
-        "sagemaker:createPresignedDomainUrl",
-        "sagemaker:DescribeUserProfile",
-        "sagemaker:AddTags",
-        "sagemaker:CreateMlflowTrackingServer",
-        "sagemaker:CreateApp"
+        "sagemaker:*",
+        "sagemaker-mlflow:AccessUI"
+
     ]
     resources = ["*"]
   }
