@@ -17,7 +17,8 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
         "sagemaker:describeApp",
         "sagemaker:createPresignedDomainUrl",
         "sagemaker:DescribeUserProfile",
-        "sagemaker:AddTags"
+        "sagemaker:AddTags",
+        "sagemaker:CreateMlflowTrackingServer"
     ]
     resources = ["*"]
   }
