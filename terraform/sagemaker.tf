@@ -11,7 +11,7 @@ resource "aws_sagemaker_domain" "mlflow_demo" {
     execution_role = aws_iam_role.sagemaker_role.arn
     jupyter_server_app_settings {
       code_repository {
-        repository_url = aws_sagemaker_code_repository.mlflow_demo_repository.id
+        repository_url = "https://github.com/turelit/mlflow_demo.git"
       }
       default_resource_spec {
         instance_type = "ml.t3.medium"
@@ -23,14 +23,6 @@ resource "aws_sagemaker_domain" "mlflow_demo" {
 resource "aws_sagemaker_user_profile" "turelit" {
   domain_id             = aws_sagemaker_domain.mlflow_demo.id
   user_profile_name     = "turelit"
-}
-
-resource "aws_sagemaker_code_repository" "mlflow_demo_repository" {
-  code_repository_name = "my-notebook-instance-code-repo"
-
-  git_config {
-    repository_url = "https://github.com/turelit/mlflow_demo.git"
-  }
 }
 
 resource "aws_sagemaker_space" "mlflow_demo_space" {
