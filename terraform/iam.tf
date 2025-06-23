@@ -23,6 +23,12 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
     ]
     resources = ["arn:aws:iam::*:role/sagemaker_role"]
   }
+  statement {
+    actions   = [
+        "s3:*"
+    ]
+    resources = ["${aws_s3_bucket.dev_bucket.arn}"]
+  }
 }
 
 data "aws_iam_policy_document" "sagemaker_assume_policy_document" {
