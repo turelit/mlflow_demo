@@ -27,7 +27,10 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
     actions   = [
         "s3:*"
     ]
-    resources = ["${aws_s3_bucket.dev_bucket.arn}"]
+    resources = [
+      "${aws_s3_bucket.dev_bucket.arn}",
+      "${aws_s3_bucket.dev_bucket.arn}/*"
+      ]
   }
 }
 
