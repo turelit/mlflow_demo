@@ -22,11 +22,9 @@ resource "aws_sagemaker_code_repository" "mlflow_demo_repository" {
   }
 }
 
-resource "aws_sagemaker_notebook_instance" "mlflow_demo_notebook" {
-  name                    = "mlflow-demo-notebook"
-  role_arn                = aws_iam_role.sagemaker_role.arn
-  instance_type           = "ml.t2.medium"
-  default_code_repository = aws_sagemaker_code_repository.mlflow_demo_repository.code_repository_name
+resource "aws_sagemaker_space" "mlflow_demo_space" {
+  domain_id  = aws_sagemaker_domain.mlflow_demo.id
+  space_name = "mlflow-demo-space"
 }
 
 resource "aws_sagemaker_mlflow_tracking_server" "mlflow_tracking_server" {
