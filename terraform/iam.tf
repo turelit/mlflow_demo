@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
   statement {
     actions   = [
         "sagemaker:*",
-        "sagemaker-mlflow:AccessUI"
+        "sagemaker-mlflow:*"
 
     ]
     resources = ["*"]

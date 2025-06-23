@@ -17,11 +17,6 @@ resource "aws_sagemaker_user_profile" "turelit" {
   user_profile_name     = "turelit"
 }
 
-resource "aws_sagemaker_space" "mlflow_demo_space" {
-  domain_id  = aws_sagemaker_domain.mlflow_demo.id
-  space_name = "mlflow-demo-space"
-}
-
 #resource "aws_sagemaker_mlflow_tracking_server" "mlflow_tracking_server" {
 #  tracking_server_name = "mlflow-demo-tracking-server"
 #  role_arn             = aws_iam_role.sagemaker_role.arn
