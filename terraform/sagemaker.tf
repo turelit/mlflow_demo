@@ -13,3 +13,24 @@ resource "aws_sagemaker_user_profile" "turelit" {
   domain_id             = aws_sagemaker_domain.mlflow_demo.id
   user_profile_name     = "turelit"
 }
+
+resource "aws_sagemaker_code_repository" "mlflow_demo_repository" {
+  code_repository_name = "my-notebook-instance-code-repo"
+
+  git_config {
+    repository_url = "https://github.com/turelit/mlflow_demo.git"
+  }
+}
+
+resource "aws_sagemaker_notebook_instance" "mlflow_demo_notebook" {
+  name                    = "mlflow-demo-notebook"
+  role_arn                = aws_iam_role.sagemaker_role.arn
+  instance_type           = "ml.t2.medium"
+  default_code_repository = aws_sagemaker_code_repository.example.code_repository_name
+}
+
+resource "aws_sagemaker_mlflow_tracking_server" "mlflow_tracking_server" {
+  tracking_server_name = "mlflow-demo-tracking-server"
+  role_arn             = aws_iam_role.sagemaker_role.arn
+  artifact_store_uri   = "s3://${aws_s3_bucket.dev_bucket.bucket}"
+}
