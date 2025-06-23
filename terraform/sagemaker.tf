@@ -26,7 +26,7 @@ resource "aws_sagemaker_notebook_instance" "mlflow_demo_notebook" {
   name                    = "mlflow-demo-notebook"
   role_arn                = aws_iam_role.sagemaker_role.arn
   instance_type           = "ml.t2.medium"
-  default_code_repository = aws_sagemaker_code_repository.example.code_repository_name
+  default_code_repository = aws_sagemaker_code_repository.mlflow_demo_repository.code_repository_name
 }
 
 resource "aws_sagemaker_mlflow_tracking_server" "mlflow_tracking_server" {
