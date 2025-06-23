@@ -10,9 +10,6 @@ resource "aws_sagemaker_domain" "mlflow_demo" {
   default_space_settings {
     execution_role = aws_iam_role.sagemaker_role.arn
     jupyter_server_app_settings {
-      code_repository {
-        repository_url = "https://github.com/turelit/mlflow_demo.git"
-      }
       default_resource_spec {
         instance_type = "ml.t3.medium"
       }
