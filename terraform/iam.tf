@@ -22,6 +22,12 @@ data "aws_iam_policy_document" "sagemaker_inline_policy_document" {
     ]
     resources = ["*"]
   }
+  statement {
+    actions   = [
+        "iam:PassRole"
+    ]
+    resources = ["arn:aws:iam::*:role/sagemaker_role"]
+  }
 }
 
 data "aws_iam_policy_document" "sagemaker_assume_policy_document" {
