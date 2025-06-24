@@ -1,4 +1,4 @@
-variable "region" {
+variable "application_prefix" {
   type        = string
-  description = "AWS region to deploy resources into."
+  description = "Prefix used for resource naming."
 }

@@ -1,1 +1,1 @@
-region = "eu-north-1"
+application_prefix = "mlflow-demo"

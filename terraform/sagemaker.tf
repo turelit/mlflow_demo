@@ -1,5 +1,5 @@
 resource "aws_sagemaker_domain" "mlflow_demo" {
-  domain_name = "mlflow-demo"
+  domain_name = var.application_prefix
   auth_mode   = "IAM"
   vpc_id      = data.aws_vpc.default.id
   subnet_ids  = [data.aws_subnet.default_az1.id,data.aws_subnet.default_az2.id,data.aws_subnet.default_az3.id]
@@ -18,7 +18,7 @@ resource "aws_sagemaker_user_profile" "turelit" {
 }
 
 resource "aws_sagemaker_mlflow_tracking_server" "mlflow_tracking_server" {
-  tracking_server_name = "mlflow-demo-tracking-server"
+  tracking_server_name = "${var.application_prefix}-tracking-server"
   role_arn             = aws_iam_role.sagemaker_role.arn
   artifact_store_uri   = "s3://${aws_s3_bucket.dev_bucket.bucket}"
 }
